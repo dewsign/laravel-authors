@@ -1,6 +1,6 @@
 {
     "name": "@dewsign/laravel-authors",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Ability to attach users as authors to any content",
     "main": "dist-js/index.js",
     "scripts": {
