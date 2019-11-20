@@ -1,0 +1,31 @@
+{
+    "name": "dewsign/laravel-authors",
+    "description": "Ability to attach users as authors to any content",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Mark",
+            "email": "m2de@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": ">=5.0.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": ">=3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dewsign\\LaravelAuthors\\": "src-php/"
+        }
+    },
+    "extra":{
+        "laravel": {
+            "providers": [
+                "Dewsign\\LaravelAuthors\\Providers\\PackageServiceProvider"
+            ]
+        }
+    }
+}
