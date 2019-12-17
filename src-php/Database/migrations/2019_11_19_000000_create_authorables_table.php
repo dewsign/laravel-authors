@@ -13,7 +13,9 @@ class CreateAuthorablesTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('authorables')) {
+        if (Schema::hasTable('authorables')) {
+            echo 'An authorables table already exists!';
+        } else {
             Schema::create('authorables', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->unsignedBigInteger('user_id');
