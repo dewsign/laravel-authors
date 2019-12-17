@@ -13,14 +13,16 @@ class CreateAuthorablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('authorables', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->nullableMorphs('authorable');
-            $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
+        if (!Schema::hasTable('authorables')) {
+            Schema::create('authorables', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->unsignedBigInteger('user_id');
+                $table->nullableMorphs('authorable');
+                $table->timestamps();
+    
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            });
+        }
     }
 
     /**
@@ -30,6 +32,8 @@ class CreateAuthorablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('authorables');
+        if (Schema::hasTable('authorables')) {
+            Schema::dropIfExists('authorables');
+        }
     }
 }
